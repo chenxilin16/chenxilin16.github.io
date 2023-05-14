@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day3</title>
+    <style>
+        *{/*通用样式*/
+            margin: 0;
+            padding: 0;
+        }
+         body {
+            
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("./古风背景.jpeg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+
+        }
+        h2.welcome{
+            color:black;
+            font-size: 20px;
+            position:absolute;
+            left: 200px;
+            top:200px;
+            text-align: right;
+            font-weight: lighter;
+        }
+        h3.welcome{
+            color: black;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 10px;
+            position: absolute;
+            left: 200px;
+            top:240px;
+            font-weight: lighter;
+        }
+        h1{
+     width: 300px;
+     height: 200px;
+     position: absolute;
+     text-align: center;
+     font-family: 'FZShuTi', serif;
+     font-size: 45px;
+ }
+            
+            
+        
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;overflow:hidden;
+    }
+    a{
+        color:rgb(85, 31, 54);
+        text-align: right;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 30px;
+    }
+    
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        text-align:right;
+}
+    li {
+        float: left;
+        align-self:center;
+    }
+    li a {
+        display: block;
+        color: #e7e7e7;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    li a:hover:not(.active) {
+        color:#808080;
+        background-color:rgb(139, 65, 30);
+        cursor:move;
+    }   
+li a.active {
+        color: white;
+    }
+
+.poet{
+  /*wirting-mode实现竖直排版*/
+  writing-mode: vertical-rl;
+  position:absolute;
+  right:250px;
+  top:100px;
+}
+.poet h1{
+  margin-top: 4em;
+  font-size:large;
+}
+.poet p:not(.author){
+  letter-spacing: 0.5em;
+  line-height:1.5em;
+  margin: 2em;
+}
+.poet .author{
+  text-align:right;
+}
+#divscc5{
+    margin:10px auto;
+}
+#divcss5 img{/*头像*/
+    border-radius: 50%;
+    width: 100px;
+    height:100px;
+    position:absolute;
+    left: 25px;
+    top:100px;
+
+}
+p.uid{
+    color:black;
+    text-align: left;
+    position: absolute;
+    bottom: 10px;
+
+}
+audio {
+    position: absolute;
+    left: 40%;
+    top: 95%;
+    transform: translate(-50%, -50%);
+}
+.nav{
+    position: absolute;
+    top:1.5rem;
+    right:2rem;
+}
+
+    </style>
+</head>
+<body>
+    <h1>C0的个人网站</h1>
+    <h2 class="welcome">欢迎来到我的个人网页！</h2>
+    <h3 class="welcome">总会有地上的生灵，敢于直面雷霆的微光</h3>
+    <div class="nav">
+    <ul>
+        <li><a  href="./C0的个人网页.html">首页</a></li>
+        <li><a target="_blank" href ="./个人简历.html">个人简历</a></span></li>
+        <li><a target="_blank" href="./World Wide Web.html">World wide web</a></li>
+    </ul>
+    </div>
+    <div class="poet">
+        <h1>雨霖铃</h1>
+        <p>寒蝉凄切，对长亭晚，骤雨初歇。<br>
+          都门帐饮无绪，留恋处，兰舟催发。<br>
+          执手相看泪眼，竟无语凝噎。<br>
+          念去去，千里烟波，暮霭沉沉楚天阔。</p >
+      
+        <p>多情自古伤离别，更那堪，冷落清秋节！<br>
+          今宵酒醒何处？杨柳岸，晓风残月。<br>
+          此去经年，应是良辰好景虚设。<br>
+          便纵有千种风情，更与何人说？<p>
+        <p class="author">——&lt;宋&gt;<strong>柳永</strong></p >
+      </div>
+<div id="divcss5"><img src="./1.jpeg"></div> 
+<p class="uid">uid:1002834230</p>
+<audio id="music" src="./古风bgm.mp3" autoplay="autoplay" loop="-1" controls="controls" preload="auto"></audio>
+    <script>
+        (function fairyDustCursor() {
+
+            var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"]
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var cursor = { x: width / 2, y: width / 2 };
+            var particles = [];
+
+            function init() {
+                bindEvents();
+                loop();
+            }
+
+            // Bind events that are needed
+            function bindEvents() {
+                document.addEventListener('mousemove', onMouseMove);
+                window.addEventListener('resize', onWindowResize);
+            }
+
+            function onWindowResize(e) {
+                width = window.innerWidth;
+                height = window.innerHeight;
+            }
+
+            function onMouseMove(e) {
+                cursor.x = e.clientX;
+                cursor.y = e.clientY;
+
+                addParticle(cursor.x, cursor.y, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
+            }
+
+            function addParticle(x, y, color) {
+                var particle = new Particle();
+                particle.init(x, y, color);
+                particles.push(particle);
+            }
+
+            function updateParticles() {
+
+                // Updated
+                for (var i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                }
+
+                // Remove dead particles
+                for (var i = particles.length - 1; i >= 0; i--) {
+                    if (particles[i].lifeSpan < 0) {
+                        particles[i].die();
+                        particles.splice(i, 1);
+                    }
+                }
+
+            }
+
+            function loop() {
+                requestAnimationFrame(loop);
+                updateParticles();
+            }
+
+            /**
+             * Particles
+             */
+
+            function Particle() {
+
+                this.character = "*";
+                this.lifeSpan = 120; //ms
+                this.initialStyles = {
+                    "position": "fixed",
+                    "display": "inline-block",
+                    "top": "0px",
+                    "left": "0px",
+                    "pointerEvents": "none",
+                    "touch-action": "none",
+                    "z-index": "10000000",
+                    "fontSize": "25px",
+                    "will-change": "transform"
+                };
+
+                // 鼠标追踪
+                this.init = function (x, y, color) {
+
+                    this.velocity = {
+                        x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
+                        y: 1
+                    };
+
+                    this.position = { x: x + 10, y: y + 10 };
+                    this.initialStyles.color = color;
+
+                    this.element = document.createElement('span');
+                    this.element.innerHTML = this.character;
+                    applyProperties(this.element, this.initialStyles);
+                    this.update();
+
+                    document.querySelector('.js-cursor-container').appendChild(this.element);
+                };
+
+                this.update = function () {
+                    this.position.x += this.velocity.x;
+                    this.position.y += this.velocity.y;
+                    this.lifeSpan--;
+
+                    this.element.style.transform = "translate3d(" + this.position.x + "px," + this.position.y + "px, 0) scale(" + (this.lifeSpan / 120) + ")";
+                }
+
+                this.die = function () {
+                    this.element.parentNode.removeChild(this.element);
+                }
+
+            }
+
+            function applyProperties(target, properties) {
+                for (var key in properties) {
+                    target.style[key] = properties[key];
+                }
+            }
+
+            if (!('ontouchstart' in window || navigator.msMaxTouchPoints)) init();
+        })();    
+    </script>
+  
+</body>
+</html>
